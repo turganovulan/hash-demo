@@ -44,7 +44,7 @@ function update() {
   $('#p-2r .card-footer').toggleClass('bg-success ', hash2 === hash2result)
 }
 
-function setListener() {
+$(document).ready(function () {
   $('#p-1e-input').on('keyup change keydown', e => {
     protocol1edit.text = e.target.value;
     update()
@@ -53,10 +53,6 @@ function setListener() {
     protocol2edit.text = e.target.value;
     update()
   })
-}
 
-
-$(document).ready(function () {
   update()
-  setListener()
 });
