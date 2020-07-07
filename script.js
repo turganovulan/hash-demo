@@ -15,18 +15,17 @@ class Block {
 
   template() {
     const name = 'Запись ' + this.index;
-    const element = $(`<div class="card-deck flex-nowrap mb-5">
+    const element = $(`<div class="card-deck flex-nowrap mb-4">
         <div class="card bg-light">
           <div class="card-header font-weight-bold">${name}</div>
           <div class="card-body p-data"></div>
           <div class="card-footer text-center text-muted font-weight-bold small p-hash">></div>
         </div>
         <div class="card">
-          <div class="card-header">Злоумышленник</div>
-          <div class="card-body p-input"></div>
+          <div class="card-body my-auto flex-grow-0 p-input"></div>
         </div>
         <div class="card p-copy">
-          <div class="card-header">Копия протокола</div>
+          <div class="card-header">${name}</div>
           <div class="card-body p-copy-data"></div>
           <div class="card-footer text-center text-white font-weight-bold small p-copy-hash"></div>
         </div>
