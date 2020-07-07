@@ -11,37 +11,43 @@ var protocol2 = {
 var protocol2edit = {
   text: 'text'
 }
+var tmp_hash
 
+function updateHash(id, protocol, edit, hash) {
+  const result = Object.assign({ hash: hash }, protocol, edit)
+  const result_hash = objectHash(result)
+
+  $(id + ' .p-text').text(result.text)
+  $(id + ' .p-hash').text(result_hash)
+
+  const protocol_hash = objectHash(protocol)
+  const edit_hash = objectHash(Object.assign({}, protocol, edit))
+  $(id).toggleClass('border-danger', protocol_hash !== edit_hash)
+  $(id).toggleClass('border-success ', protocol_hash === edit_hash)
+  $(id + ' .card-footer').toggleClass('bg-danger', protocol_hash !== edit_hash)
+  $(id + ' .card-footer').toggleClass('bg-success ', protocol_hash === edit_hash)
+
+  return result_hash
+}
 
 function update() {
-  const protocol1result = Object.assign({}, protocol1, protocol1edit)
-  const protocol2result = Object.assign({}, protocol2, protocol2edit)
+  const hash1 = objectHash(protocol1)
+  const hash2 = objectHash(protocol2)
 
   $('#p-1-text').text(protocol1.text)
   $('#p-1e-input').val(protocol1edit.text)
-  $('#p-1r-text').text(protocol1result.text)
   $('#p-2-text').text(protocol2.text)
   $('#p-2e-input').val(protocol2edit.text)
-  $('#p-2r-text').text(protocol2result.text)
 
-  const hash1 = objectHash(protocol1)
-  const hash1result = objectHash(protocol1result)
-  const hash2 = objectHash(protocol2)
-  const hash2result = objectHash(protocol2result)
+  tmp_hash = updateHash('#p-1r1', protocol1, protocol1edit)
+  tmp_hash = updateHash('#p-1r2', protocol1, protocol1edit, tmp_hash)
+  tmp_hash = updateHash('#p-1r3', protocol1, protocol1edit, tmp_hash)
+  tmp_hash = updateHash('#p-2r1', protocol2, protocol2edit)
+  tmp_hash = updateHash('#p-2r2', protocol2, protocol2edit, tmp_hash)
+  tmp_hash = updateHash('#p-2r3', protocol2, protocol2edit, tmp_hash)
   
   $('#p-1-hash').text(hash1)
-  $('#p-1r-hash').text(hash1result)
   $('#p-2-hash').text(hash2)
-  $('#p-2r-hash').text(hash2result)
-
-  $('#p-1r').toggleClass('border-danger', hash1 !== hash1result)
-  $('#p-1r').toggleClass('border-success ', hash1 === hash1result)
-  $('#p-1r .card-footer').toggleClass('bg-danger', hash1 !== hash1result)
-  $('#p-1r .card-footer').toggleClass('bg-success ', hash1 === hash1result)
-  $('#p-2r').toggleClass('border-danger', hash2 !== hash2result)
-  $('#p-2r').toggleClass('border-success ', hash2 === hash2result)
-  $('#p-2r .card-footer').toggleClass('bg-danger', hash2 !== hash2result)
-  $('#p-2r .card-footer').toggleClass('bg-success ', hash2 === hash2result)
 }
 
 $(document).ready(function () {

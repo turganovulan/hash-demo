@@ -9,6 +9,15 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+		<style>
+			#main {
+				max-width: 1200px;
+			}
+			.card {
+				margin-bottom: 24px;
+			}
+		</style>
 </head>
 
 <body>
@@ -16,8 +25,8 @@
 		<a class="navbar-brand" href="#">Demo Page</a>
 	</nav>
 
-	<div class="container-fluid p-5">
-		<div class="card-deck">
+	<div id="main" class="container-fluid p-5 mx-auto row">
+		<div class="col mb-5 flex-column">
 				<div class="card bg-light">
 					<div class="card-header">Protocol 1</div>
 					<div class="card-body">
@@ -35,16 +44,32 @@
 						</div>
 					</div>
 				</div>
-				<div id="p-1r" class="card">
-					<div class="card-header">Copy</div>
+				<div id="p-1r1" class="card">
+					<div class="card-header">Block 1</div>
 					<div class="card-body">
 						<span class="h6">Text:</span>
-						<span id="p-1r-text"></span>
+						<span class="p-text"></span>
 					</div>
-					<div class="card-footer text-center text-white font-weight-bold small"><span id="p-1r-hash"></span></div>
+					<div class="card-footer text-center text-white font-weight-bold small"><span class="p-hash"></span></div>
+				</div>
+				<div id="p-1r2" class="card">
+					<div class="card-header">Block 2</div>
+					<div class="card-body">
+						<span class="h6">Text:</span>
+						<span class="p-text"></span>
+					</div>
+					<div class="card-footer text-center text-white font-weight-bold small"><span class="p-hash"></span></div>
+				</div>
+				<div id="p-1r3" class="card">
+					<div class="card-header">Block 3</div>
+					<div class="card-body">
+						<span class="h6">Text:</span>
+						<span class="p-text"></span>
+					</div>
+					<div class="card-footer text-center text-white font-weight-bold small"><span class="p-hash"></span></div>
 				</div>
 		</div>
-		<div class="card-deck mt-5">
+		<div class="col flex-column">
 			<div class="card bg-light">
 				<div class="card-header">Protocol 2</div>
 				<div class="card-body">
@@ -62,13 +87,29 @@
 					</div>
 				</div>
 			</div>
-			<div id="p-2r" class="card">
-				<div class="card-header">Copy</div>
+			<div id="p-2r1" class="card">
+				<div class="card-header">Block 1</div>
 				<div class="card-body">
 					<span class="h6">Text:</span>
-					<span id="p-2r-text"></span>
+					<span class="p-text"></span>
 				</div>
-				<div class="card-footer text-center text-white font-weight-bold small"><span id="p-2r-hash"></span></div>
+				<div class="card-footer text-center text-white font-weight-bold small"><span class="p-hash"></span></div>
+			</div>
+			<div id="p-2r2" class="card">
+				<div class="card-header">Block 2</div>
+				<div class="card-body">
+					<span class="h6">Text:</span>
+					<span class="p-text"></span>
+				</div>
+				<div class="card-footer text-center text-white font-weight-bold small"><span class="p-hash"></span></div>
+			</div>
+			<div id="p-2r3" class="card">
+				<div class="card-header">Block 3</div>
+				<div class="card-body">
+					<span class="h6">Text:</span>
+					<span class="p-text"></span>
+				</div>
+				<div class="card-footer text-center text-white font-weight-bold small"><span class="p-hash"></span></div>
 			</div>
 	</div>
 	</div>
